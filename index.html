@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Пожелание — Сюцай</title>
+<style>
+:root{
+  --bg:#0f1724;--card:#0b1220;--accent:#f7c948;--muted:#9aa7b2;
+  font-family:Inter,Roboto,Arial,sans-serif;
+}
+html,body{margin:0;height:100%;background:linear-gradient(180deg,var(--bg),#081021);color:#e6eef6;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:linear-gradient(180deg,var(--card),#071021);padding:30px;border-radius:16px;max-width:700px;width:100%;box-shadow:0 10px 25px rgba(0,0,0,.6);text-align:center}
+.logo{font-size:40px;font-weight:800;background:linear-gradient(90deg,var(--accent),#ffb86b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+h1{margin:0 0 8px}
+.wish{font-size:22px;margin:30px 0;min-height:90px}
+button{background:linear-gradient(90deg,var(--accent),#ffb86b);border:0;border-radius:10px;padding:10px 20px;font-size:16px;cursor:pointer;color:#071021;font-weight:600}
+.num{font-size:70px;font-weight:900;opacity:.08;position:absolute;width:100%;left:0;top:20px;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">СЮЦАЙ</div>
+  <h1>Твоё пожелание</h1>
+  <div class="wish-box" style="position:relative">
+    <div class="num" id="num">00</div>
+    <div class="wish" id="wish">Генерируется...</div>
+  </div>
+  <button id="next">Другое пожелание</button>
+</div>
+<script>
+const wishes=[
+"Пусть каждый день приносит радость и спокойствие.",
+"Пусть все задуманное сбывается без препятствий.",
+"Желаем тепла, улыбок и удачи на каждом шагу.",
+"Пусть мечты исполняются легко и красиво.",
+"Пусть в сердце всегда живёт вдохновение.",
+"Пусть жизнь сияет, как огни города ночью.",
+"Желаем крепкого здоровья и гармонии в душе.",
+"Пусть день рождения станет началом счастливого года.",
+"Пусть рядом будут люди, которые делают тебя счастливым.",
+"Желаем лёгкости во всех делах и внутреннего спокойствия.",
+"Пусть жизнь наполняется светом, смыслом и радостью.",
+"Пусть сила воли и вера всегда будут твоими спутниками.",
+"Пусть сердце будет добрым, а дорога — прямой и ясной.",
+"Желаем вдохновения, смелости и удачи в каждом проекте.",
+"Пусть успех приходит без стука — сам открывает дверь.",
+"Желаем любви, энергии и бесконечного оптимизма.",
+"Пусть улыбка будет твоим постоянным украшением.",
+"Пусть этот год принесёт новые открытия и радость.",
+"Желаем, чтобы мечты исполнялись быстрее, чем загадываются.",
+"Пусть всё, что ты делаешь, приносит радость и пользу."
+];
+function showWish(){
+  const i=Math.floor(Math.random()*wishes.length);
+  wish.textContent=wishes[i];
+  num.textContent=String(i+1).padStart(2,'0');
+}
+next.onclick=showWish;
+showWish();
+</script>
+</body>
+</html>
